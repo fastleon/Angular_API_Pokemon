@@ -9,15 +9,17 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokemonComponent implements OnInit{ 
 
-  name: string
+  name!: string
+  urlImage! : string
   constructor(private pokemonService : PokemonService){}
 
   ngOnInit(): void{
   }
 
   search(){
-    this.pokemonService.getPokemon(this.name).subscribe(data => {
-      console.log(data)
+    this.pokemonService.getPokemon(this.name.toLowerCase()).subscribe((data:any) => {
+      console.log(data) // se puede ver desde F12 herramientas de desarrollador
+      this.urlImage = data.sprites.front_default
     })
   }
 }

@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http'
 })
 export class PokemonService {
 
-  private url: string = " https://pokeapi.co/api/v2/pokemon/";
+  private url: string = "https://pokeapi.co/api/v2/pokemon";
 
   constructor(private http : HttpClient) { }
 
   getPokemon(name: string){
-    return this.http.get(`${this.url}${name}`)
+    return this.http.get(`${this.url}/${name}`);
   }
 }
  
